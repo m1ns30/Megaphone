@@ -7,7 +7,7 @@ use pocketmine\plugin\PluginBase;
 
 final class Megaphone extends PluginBase
 {
-    public static string $prefix = '§l§d[확성기] §r§f';
+    public const prefix = '§l§d[확성기] §r§f';
 
     protected function onEnable(): void
     {

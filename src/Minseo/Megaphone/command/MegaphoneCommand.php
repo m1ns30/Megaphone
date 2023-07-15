@@ -18,8 +18,7 @@ final class MegaphoneCommand extends Command
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): void
     {
-        if ($sender instanceof Player) {
+        if ($sender instanceof Player)
             $sender->sendForm(new MegaphoneMainForm());
-        }
     }
 }

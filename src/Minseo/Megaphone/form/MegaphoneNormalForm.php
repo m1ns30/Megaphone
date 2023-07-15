@@ -24,15 +24,12 @@ final class MegaphoneNormalForm implements Form
     }
     public function handleResponse(Player $player, $data): void
     {
-        $name = $player->getName();
-
         if ($data === null) return;
-        {
             if (!isset($data[0])) {
-                $player->sendMessage(Megaphone::$prefix . "빈 칸이 존재합니다 다시 작성해주세요.");
+                $player->sendMessage(Megaphone::prefix . "빈 칸이 존재합니다 다시 작성해주세요.");
             }
-            Server::getInstance()->broadcastMessage(Megaphone::$prefix . "$name : $data[0]");
-            $player->sendMessage(Megaphone::$prefix . "확성기를 정상적으로 사용하였습니다.");
-        }
+            $name = $player->getName();
+            Server::getInstance()->broadcastMessage(Megaphone::prefix . "$name : $data[0]");
+            $player->sendMessage(Megaphone::prefix . "확성기를 정상적으로 사용하였습니다.");
     }
 }

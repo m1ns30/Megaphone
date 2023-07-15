@@ -27,15 +27,10 @@ final class MegaphoneMainForm implements Form
 
     public function handleResponse(Player $player, $data): void
     {
-        if (is_numeric($data)) {
-            switch ($data) {
-                case 0:
-                    $player->sendForm(new MegaphoneNormalForm());
-                    break;
-                case 1:
-                    $player->sendForm(new MegaphonePremiumForm());
-                    break;
-            }
-        }
+        if ($data === null) return;
+        $player->sendForm(match($data) {
+            0 => new MegaphoneNormalForm(),
+            1 => new MegaphonePremiumForm()
+        });
     }
 }
